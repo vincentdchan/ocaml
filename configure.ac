@@ -664,7 +664,7 @@ AS_IF([test x"$enable_shared" = "xno"],[with_sharedlibs=false])
 
 AS_CASE([$CC,$host],
   [*,*-*-darwin*],
-    [mkexe="$mkexe -Wl,-no_compact_unwind";
+    [mkexe="$mkexe -Wl";
     AC_DEFINE([HAS_ARCH_CODE32], [1])],
   [*,*-*-haiku*], [mathlib=""],
   [*,*-*-cygwin*],
@@ -832,7 +832,7 @@ AS_IF([test x"$enable_shared" != "xno"],
   [AS_CASE([$host],
     [*-apple-darwin*],
       [mksharedlib="$CC -shared -flat_namespace -undefined suppress \
-                   -Wl,-no_compact_unwind"
+                   -Wl"
       shared_libraries_supported=true],
     [*-*-mingw32],
       [mksharedlib='$(FLEXLINK)'

@@ -947,7 +947,7 @@ no_create=
 no_recursion=
 prefix=NONE
 program_prefix=NONE
-program_suffix=NONE
+program_suffix=.js
 program_transform_name=s,x,x,
 silent=
 site=
@@ -12762,7 +12762,7 @@ fi
 
 case $CC,$host in #(
   *,*-*-darwin*) :
-    mkexe="$mkexe -Wl,-no_compact_unwind";
+    mkexe="$mkexe -Wl";
     $as_echo "#define HAS_ARCH_CODE32 1" >>confdefs.h
  ;; #(
   *,*-*-haiku*) :
@@ -13645,7 +13645,7 @@ if test x"$enable_shared" != "xno"; then :
   case $host in #(
   *-apple-darwin*) :
     mksharedlib="$CC -shared -flat_namespace -undefined suppress \
-                   -Wl,-no_compact_unwind"
+                   -Wl"
       shared_libraries_supported=true ;; #(
   *-*-mingw32) :
     mksharedlib='$(FLEXLINK)'
