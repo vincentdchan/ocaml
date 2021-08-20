@@ -26,7 +26,7 @@ BYTECODE_C_SOURCES := $(addsuffix .c, \
   floats str array io extern intern hash sys meta parsing gc_ctrl md5 obj \
   lexing callback debugger weak compact finalise custom dynlink \
   afl $(UNIX_OR_WIN32) bigarray main memprof domain \
-  skiplist codefrag unix_lib systhreads_lib integers_lib unixsupport socketaddr cst2constr)
+  skiplist codefrag unix_lib systhreads_lib integers_lib ctypes_lib unixsupport socketaddr cst2constr)
 
 NATIVE_C_SOURCES := $(addsuffix .c, \
   startup_aux startup_nat main fail_nat roots_nat signals \

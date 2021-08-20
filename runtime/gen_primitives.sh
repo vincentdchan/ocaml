@@ -73,6 +73,76 @@ integers_ushort_size\n
 integers_uint_size\n
 integers_ulong_size\n
 integers_ulonglong_size\n
+integers_intptr_t_size\n
+integers_uintptr_t_size\n
+integers_ptrdiff_t_size\n
+ctypes_ldouble_to_float\n
+ctypes_ldouble_of_float\n
+ctypes_ldouble_to_int\n
+ctypes_ldouble_of_int\n
+ctypes_ldouble_of_string\n
+ctypes_ldouble_add\n
+ctypes_ldouble_sub\n
+ctypes_ldouble_mul\n
+ctypes_ldouble_div\n
+ctypes_ldouble_neg\n
+ctypes_ldouble_powl\n
+ctypes_ldouble_sqrtl\n
+ctypes_ldouble_expl\n
+ctypes_ldouble_logl\n
+ctypes_ldouble_log10l\n
+ctypes_ldouble_expm1l\n
+ctypes_ldouble_log1pl\n
+ctypes_ldouble_cosl\n
+ctypes_ldouble_sinl\n
+ctypes_ldouble_tanl\n
+ctypes_ldouble_acosl\n
+ctypes_ldouble_asinl\n
+ctypes_ldouble_atanl\n
+ctypes_ldouble_atan2l\n
+ctypes_ldouble_hypotl\n
+ctypes_ldouble_coshl\n
+ctypes_ldouble_sinhl\n
+ctypes_ldouble_tanhl\n
+ctypes_ldouble_acoshl\n
+ctypes_ldouble_asinhl\n
+ctypes_ldouble_atanhl\n
+ctypes_ldouble_ceill\n
+ctypes_ldouble_floorl\n
+ctypes_ldouble_fabsl\n
+ctypes_ldouble_remainderl\n
+ctypes_ldouble_copysignl\n
+ctypes_ldouble_frexp\n
+ctypes_ldouble_ldexp\n
+ctypes_ldouble_modf\n
+ctypes_ldouble_classify\n
+ctypes_ldouble_format\n
+ctypes_ldouble_complex_conjl\n
+ctypes_ldouble_complex_real\n
+ctypes_ldouble_complex_imag\n
+ctypes_ldouble_complex_neg\n
+ctypes_ldouble_complex_conjl\n
+ctypes_ldouble_complex_add\n
+ctypes_ldouble_complex_sub\n
+ctypes_ldouble_complex_mul\n
+ctypes_ldouble_complex_div\n
+ctypes_ldouble_complex_csqrtl\n
+ctypes_ldouble_complex_cargl\n
+ctypes_ldouble_complex_cexpl\n
+ctypes_ldouble_complex_clogl\n
+ctypes_ldouble_complex_cpowl\n
+ctypes_typeof_clock_t\n
+ctypes_typeof_dev_t\n
+ctypes_typeof_ino_t\n
+ctypes_typeof_mode_t\n
+ctypes_typeof_nlink_t\n
+ctypes_typeof_off_t\n
+ctypes_typeof_pid_t\n
+ctypes_typeof_ssize_t\n
+ctypes_typeof_time_t\n
+ctypes_typeof_useconds_t\n
+ctypes_alignmentof_sigset_t\n
+ctypes_sizeof_sigset_t\n
 '
 
 export LC_ALL=C
@@ -81,7 +151,7 @@ export LC_ALL=C
       alloc array compare extern floats gc_ctrl hash intern interp ints io \
       lexing md5 meta memprof obj parsing signals str sys callback weak \
       finalise stacks dynlink backtrace_byt backtrace afl \
-      bigarray eventlog unix_lib systhreads_lib integers_lib
+      bigarray eventlog unix_lib systhreads_lib integers_lib ctypes_lib
   do
       sed -n -e 's/^CAMLprim value \([a-z0-9_][a-z0-9_]*\).*/\1/p' "$prim.c"
   done
