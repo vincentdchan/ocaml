@@ -131,6 +131,7 @@ static void open_shared_lib(char_os * name)
 
   realname = caml_search_dll_in_path(&caml_shared_libs_path, name);
   u8 = caml_stat_strdup_of_os(realname);
+  printf("loading library: %s\n", realname);
   caml_gc_message(0x100, "Loading shared library %s\n", u8);
   caml_stat_free(u8);
   caml_enter_blocking_section();
@@ -172,9 +173,14 @@ void caml_build_primitive_table(char_os * lib_path,
   tofree2 = parse_ld_conf();
   /* Open the shared libraries */
   caml_ext_table_init(&shared_libs, 8);
-  if (libs != NULL)
-    for (p = libs; *p != 0; p += strlen_os(p) + 1)
-      open_shared_lib(p);
+  if (libs != NULL) {
+    for (p = libs; *p != 0; p += strlen_os(p) + 1) {
+      printf("opening lib: %s\n, skipped", p);
+    }
+    // for (p = libs; *p != 0; p += strlen_os(p) + 1) {
+    //   open_shared_lib(p);
+    // }
+  }
   /* Build the primitive table */
   caml_ext_table_init(&caml_prim_table, 0x180);
 #ifdef DEBUG
@@ -184,6 +190,7 @@ void caml_build_primitive_table(char_os * lib_path,
     c_primitive prim = lookup_primitive(q);
     if (prim == NULL)
           caml_fatal_error("unknown C primitive `%s'", q);
+    printf("primitive: %s\n", q);
     caml_ext_table_add(&caml_prim_table, (void *) prim);
 #ifdef DEBUG
     caml_ext_table_add(&caml_prim_name_table, caml_stat_strdup(q));
