@@ -143,6 +143,7 @@ ctypes_typeof_time_t\n
 ctypes_typeof_useconds_t\n
 ctypes_alignmentof_sigset_t\n
 ctypes_sizeof_sigset_t\n
+Base_am_testing\n
 '
 
 export LC_ALL=C
@@ -151,9 +152,10 @@ export LC_ALL=C
       alloc array compare extern floats gc_ctrl hash intern interp ints io \
       lexing md5 meta memprof obj parsing signals str sys callback weak \
       finalise stacks dynlink backtrace_byt backtrace afl \
-      bigarray eventlog unix_lib systhreads_lib integers_lib ctypes_lib
+      bigarray eventlog unix_lib systhreads_lib integers_lib core_kernel_lib \
+      blit_lib ctypes_lib base_lib
   do
-      sed -n -e 's/^CAMLprim value \([a-z0-9_][a-z0-9_]*\).*/\1/p' "$prim.c"
+      sed -n -e 's/^CAMLprim value \([A-Za-z0-9_][a-z0-9_]*\).*/\1/p' "$prim.c"
   done
   sed -n -e 's/^CAMLprim_int64_[0-9](\([a-z0-9_][a-z0-9_]*\)).*/caml_int64_\1\
 caml_int64_\1_native/p' ints.c
