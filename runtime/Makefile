@@ -27,7 +27,7 @@ BYTECODE_C_SOURCES := $(addsuffix .c, \
   lexing callback debugger weak compact finalise custom dynlink \
   afl $(UNIX_OR_WIN32) bigarray main memprof domain \
   skiplist codefrag unix_lib systhreads_lib integers_lib base_lib ctypes_lib core_kernel_lib \
-	blit_lib unixsupport socketaddr cst2constr)
+	blit_lib b unixsupport socketaddr cst2constr)
 
 NATIVE_C_SOURCES := $(addsuffix .c, \
   startup_aux startup_nat main fail_nat roots_nat signals \
@@ -272,7 +272,7 @@ caml/version.h : $(ROOTDIR)/tools/make-version-header.sh $(ROOTDIR)/VERSION
 
 # Libraries and programs
 
-ocamlrun$(EXE): prims.$(O) libcamlrun.$(A)
+ocamlrun$(EXE): prims.$(O) libcamlrun.$(A) libbinaryen.a
 	$(call MAKE_OCAMLRUN,ocamlrun.js,$^ $(LIBS))
 
 libcamlrun.$(A): $(libcamlrun_OBJECTS)

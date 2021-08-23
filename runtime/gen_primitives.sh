@@ -153,9 +153,9 @@ export LC_ALL=C
       lexing md5 meta memprof obj parsing signals str sys callback weak \
       finalise stacks dynlink backtrace_byt backtrace afl \
       bigarray eventlog unix_lib systhreads_lib integers_lib core_kernel_lib \
-      blit_lib ctypes_lib base_lib
+      blit_lib ctypes_lib base_lib b
   do
-      sed -n -e 's/^CAMLprim value \([A-Za-z0-9_][a-z0-9_]*\).*/\1/p' "$prim.c"
+      sed -n -e 's/^CAMLprim value \([A-Za-z0-9_][A-Za-z0-9_]*\).*/\1/p' "$prim.c"
   done
   sed -n -e 's/^CAMLprim_int64_[0-9](\([a-z0-9_][a-z0-9_]*\)).*/caml_int64_\1\
 caml_int64_\1_native/p' ints.c
